@@ -152,3 +152,5 @@ const linusInfo = {
     { name : `Tailwind CSS`},              
   ]
 }
+
+console.log(linusInfo);

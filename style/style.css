@@ -1,3 +1,11 @@
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
 body {
   margin: 0;
   width: 100vw;
@@ -19,11 +27,11 @@ footer {
   color: white;
 }
 
-table {
+.info_experience table {
   border-collapse: collapse;
 }
 
-td {
+.info_experience td {
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
   padding: 1em;
@@ -32,15 +40,15 @@ td {
   padding-bottom: 1em;
 }
 
-tr td {
+.info_experience  tr td {
   border-top: none;
 }
 
-div > h2 {
+.info_experience  div > h2 {
   border-bottom: 1px solid gray;
 }
 
-td h2 {
+.info_experience  td h2 {
   margin: 0;
 } 
 
@@ -59,4 +67,23 @@ td h2 {
 .tableStart {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+}
+
+.info_project table {
+  border-collapse: collapse;
+  border: 1px solid gray;
+}
+
+.info_project tr td, .info_project tr th{
+  text-align: center;
+  padding: 1em;
+  border: 1px solid gray;
+}
+
+.info_project > h2:nth-of-type(1), .info_experience > h2:nth-of-type(1), .info_school > h2:nth-of-type(1), .info_skill > h2:nth-of-type(1) {
+  cursor: pointer;
+}
+
+.info_project > h2:nth-of-type(1):hover, .info_experience > h2:nth-of-type(1):hover, .info_school > h2:nth-of-type(1):hover, .info_skill > h2:nth-of-type(1):hover {
+  opacity: 50%;
 }

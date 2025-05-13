@@ -193,6 +193,81 @@ await Object.keys(linusInfo).forEach((element, i) => {
   info.appendChild(div);
 });
 
+function projectMake() {
+const project = document.querySelector('.info_project');
+const table = document.createElement('table');
+linusInfo.project.forEach((element) => {
+  const tbody = document.createElement('tbody');
+  const tr = document.createElement('tr');
+  const th = document.createElement('th');
+  const th2 = document.createElement('th');
+  const th3 = document.createElement('th');
+  const th4 = document.createElement('th');
+  const tr2 = document.createElement('tr');
+  const td = document.createElement('td');
+  const td2 = document.createElement('td');
+  const td3 = document.createElement('td');
+  const td4 = document.createElement('td');
+
+  th.textContent = "프로젝트 명"
+  th2.textContent = "작업 기간"
+  th3.textContent = "팀 or 개인 프로젝트"
+  th4.textContent = "진행상황"
+
+
+  td.textContent = element.name;
+  td2.textContent = element.date;
+  td3.textContent = element.TP;
+  td4.textContent = element.complete;
+
+  tr.appendChild(th);
+  tr.appendChild(th2);
+  tr.appendChild(th3);
+  tr.appendChild(th4);
+  tr2.appendChild(td);
+  tr2.appendChild(td2);
+  tr2.appendChild(td3);
+  tr2.appendChild(td4);
+  tbody.appendChild(tr);
+  tbody.appendChild(tr2);
+  table.appendChild(tbody);
+});
+project.appendChild(table);
+}
+
+function schoolMake () {
+  linusInfo.school.forEach((element, i) => {
+  const experience = document.querySelector('.info_experience');
+
+  const table = document.createElement('table');
+  const tbody = document.createElement('tbody');
+  const tr = document.createElement('tr');
+  const td = document.createElement('td');
+  const td2 = document.createElement('td');
+  const td2H2 = document.createElement('h2');
+
+  td.textContent = element.date;
+  td2H2.textContent = element.name;
+  td2.appendChild(td2H2);
+  // console.log(element.detail);
+  linusInfo.experience[i].detail.forEach((element) => {
+    // td2.textContent = element.main
+    // console.log(element.main);
+    const td2P = document.createElement('p');
+    td2P.textContent = element.main;
+
+    td2.appendChild(td2P);
+  });
+
+  tr.appendChild(td);
+  tr.appendChild(td2);
+  tbody.appendChild(tr);
+  table.appendChild(tbody);
+  experience.appendChild(table);
+});
+}
+
+function experienceMake () {
 linusInfo.experience.forEach((element, i) => {
   const experience = document.querySelector('.info_experience');
 
@@ -221,9 +296,127 @@ linusInfo.experience.forEach((element, i) => {
   tbody.appendChild(tr);
   table.appendChild(tbody);
   experience.appendChild(table);
-})
+});
+}
+
+
+
+async function infoClick () {
+    const isClick = {
+    project : false,
+    experience : false,
+    school : false,
+    skill : false,
+  }; 
+
+  projectMake();
+  experienceMake();
+
+  const info_project = document.querySelector('.info_project');
+  const info_experience = document.querySelector('.info_experience');
+  const info_school = document.querySelector('.info_school');
+  const info_skill = document.querySelector('.info_skill');
+
+  const project_table = info_project.querySelector('table');
+  const experience_table = info_experience.querySelectorAll('table');
+  // const school_table = school.querySelector('table');
+  // const skill_table = skill.querySelector('table');
+
+  function tableChane() {
+  if(isClick.project === false) {
+    project_table.classList.add('d-none');
+    project_table.classList.remove('d-block');
+  } else if(isClick.project !== false){
+    project_table.classList.add('d-block');
+    project_table.classList.remove('d-none');
+  }
+    if(isClick.experience === false) {
+    experience_table.forEach((element) => {
+      // experience_table.classList.add('d-none');
+      // experience_table.classList.remove('d-block');
+      element.classList.add('d-none');
+      element.classList.remove('d-block');
+    })
+  } else if(isClick.experience !== false) {
+    experience_table.forEach((element) => {
+    // experience_table.classList.add('d-block');
+    // experience_table.classList.remove('d-none');
+    element.classList.add('d-block');
+    element.classList.remove('d-none');
+    })
+  }
+  //   if(isClick.school === false) {
+  //   school_table.classList.add('d-none');
+  //   school_table.classList.remove('d-block');
+  // } else {
+  //   school_table.classList.add('d-block');
+  //   school_table.classList.remove('d-none');
+  // }
+  //   if(isClick.skill === false) {
+  //   skill_table.classList.add('d-none');
+  //   skill_table.classList.remove('d-block');
+  // } else {
+  //   skill_table.classList.add('d-block');
+  //   skill_table.classList.remove('d-none');
+  // }
+  }
+tableChane();
+
+
+  const project = info_project.querySelector('h2');
+  const experience = info_experience.querySelector('h2');
+  const school = info_school.querySelector('h2');
+  const skill = info_skill.querySelector('h2');
+
+
+
+  project.addEventListener('click', () => {
+    if(isClick.project === false) {
+      isClick.project = true
+      tableChane();
+    } else {
+      isClick.project = false
+      tableChane();
+    }
+    console.log(isClick.project);
+  })
+
+  experience.addEventListener('click', () => {
+    if(isClick.experience === false) {
+      isClick.experience = true
+      tableChane();
+    } else {
+      isClick.experience = false
+      tableChane();
+    }
+    console.log(isClick.experience);
+  })
+};
+
+infoClick();
 
 
 }
 
 infoMake();
+
+const infoBtn = document.querySelector('.my_info_btn');
+
+infoBtn.addEventListener('click', () => {
+  const my_info = document.querySelector('.my_info');
+  console.log(my_info.classList);
+
+  if(my_info.classList.value === "my_info d-none") {
+    my_info.classList.add('d-block');
+    my_info.classList.remove('d-none');
+  } else if (my_info.classList.value === "my_info d-block") {
+    my_info.classList.add('d-none');
+    my_info.classList.remove('d-block');
+  }
+
+
+
+  
+
+
+});

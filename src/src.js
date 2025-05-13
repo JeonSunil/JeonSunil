@@ -153,8 +153,23 @@ const linusInfo = {
   ]
 }
 
-console.log(linusInfo);
+// console.log(linusInfo);
 
-for(let i = 0; i<linusInfo.experience.length; i++) {
-  console.log(linusInfo.experience[i].name);
-}
+// for(let i = 0; i<linusInfo.experience.length; i++) {
+//   console.log(linusInfo.experience[i].name);
+// }
+linusInfo.experience.forEach(element => {
+  console.log(element);
+});
+
+linusInfo.project.forEach(element => {
+  console.log(element);
+});
+
+linusInfo.school.forEach(element => {
+  console.log(element);
+});
+
+linusInfo.skill.forEach(element => {
+  console.log(element);
+});

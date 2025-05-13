@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  background-color: blue;
+  color: white;
+}
+
+main {
+  background-color: green;
+  color: white;
+}
+
+footer {
+  background-color: black;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 1em;
+  vertical-align: top;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+tr td {
+  border-top: none;
+}
+
+div > h2 {
+  border-bottom: 1px solid gray;
+}
+
+td h2 {
+  margin: 0;
+} 
+
+.start {
+  margin: 0;
+  border-bottom: 1px solid gray;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.background, .charactor, .active {
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+}
+
+.tableStart {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}

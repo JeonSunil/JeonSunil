@@ -156,5 +156,5 @@ const linusInfo = {
 console.log(linusInfo);
 
 for(let i = 0; i<linusInfo.experience.length; i++) {
-  console.log(linusInfo.experience[i]);
+  console.log(linusInfo.experience[i].name);
 }

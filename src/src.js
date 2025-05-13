@@ -1,3 +1,5 @@
+// * 표에 넣을 데이터를 가공해 놓은 것.
+
 const linusInfo = {
   project : [
   {
@@ -148,41 +150,39 @@ const linusInfo = {
     }, 
   ],
   skill : [
-    { name : `Node.js`},
-    { name : `JavaScript`},
-    { name : `MySQL`},
-    { name : `Git`},
-    { name : `ReactJS`},
-    { name : `PostgreSQL`},
     { name : `웹개발`},
-    { name : `RestAPI`},
     { name : `HTML5`},
-    { name : `VSCode`},
+    { name : `JavaScript`},
+    { name : `ReactJS`},
+    { name : `Node.js`},
     { name : `CSS3`},
+    { name : `Tailwind CSS`},              
+    { name : `MySQL`},
+    { name : `PostgreSQL`},
     { name : `SQLite`},
-    { name : `SQL`},
-    { name : `Web API`},
+    { name : `RestAPI`},
+    { name : `Webpack`},
     { name : `Vite`},
     { name : `Babel`},
+    { name : `Git`},
     { name : `Figma`},
-    { name : `Webpack`},
-    { name : `Tailwind CSS`},              
+    { name : `VSCode`},
   ]
 }
 
+// * info라는 클래스를 가진 표가 들어갈 div를 info라는 변수에 지정
 const info = document.querySelector('.info');
 
+// * 디버깅 목적으로 콘솔을 찍어봄.
 console.log(info);
 console.log(linusInfo);
 
-// const project = document.createElement('h2');
-// const experience = document.createElement('h2');
-// const school = document.createElement('h2');
-// const skill = document.createElement('h2');
-
+// * 가공한 데이터의 키값들만 불러오는지 확인
 console.log(Object.keys(linusInfo));
 
+// * infoMake라는 info안의 내용을 dom제어로 만들어내는 함수를 지정.
 async function infoMake() {
+// * 데이터의 키 값배열 수 만큼 div와 h2를 만들어내는 반복문을 먼저 실행.
 await Object.keys(linusInfo).forEach((element, i) => {
   const div = document.createElement('div');
   div.classList.add(`info_${element}`)
@@ -193,80 +193,88 @@ await Object.keys(linusInfo).forEach((element, i) => {
   info.appendChild(div);
 });
 
+// * project의 데이터가 들어간 표를 dom제어로 만들어내는 함수
 function projectMake() {
 const project = document.querySelector('.info_project');
 const table = document.createElement('table');
-linusInfo.project.forEach((element) => {
-  const tbody = document.createElement('tbody');
-  const tr = document.createElement('tr');
-  const th = document.createElement('th');
-  const th2 = document.createElement('th');
-  const th3 = document.createElement('th');
-  const th4 = document.createElement('th');
-  const tr2 = document.createElement('tr');
-  const td = document.createElement('td');
-  const td2 = document.createElement('td');
-  const td3 = document.createElement('td');
-  const td4 = document.createElement('td');
+const tbody = document.createElement('tbody');
+const tr = document.createElement('tr');
+const th = document.createElement('th');
+const th2 = document.createElement('th');
+const th3 = document.createElement('th');
+const th4 = document.createElement('th');
 
   th.textContent = "프로젝트 명"
   th2.textContent = "작업 기간"
   th3.textContent = "팀 or 개인 프로젝트"
   th4.textContent = "진행상황"
 
+  tr.appendChild(th);
+  tr.appendChild(th2);
+  tr.appendChild(th3);
+  tr.appendChild(th4);
+  tbody.appendChild(tr);
+  table.appendChild(tbody);
+
+linusInfo.project.forEach((element) => {
+  const tr2 = document.createElement('tr');
+  const td = document.createElement('td');
+  const td2 = document.createElement('td');
+  const td3 = document.createElement('td');
+  const td4 = document.createElement('td');
 
   td.textContent = element.name;
   td2.textContent = element.date;
   td3.textContent = element.TP;
   td4.textContent = element.complete;
 
-  tr.appendChild(th);
-  tr.appendChild(th2);
-  tr.appendChild(th3);
-  tr.appendChild(th4);
   tr2.appendChild(td);
   tr2.appendChild(td2);
   tr2.appendChild(td3);
   tr2.appendChild(td4);
-  tbody.appendChild(tr);
   tbody.appendChild(tr2);
-  table.appendChild(tbody);
 });
 project.appendChild(table);
 }
 
+// * school의 데이터가 들어간 표를 dom제어로 만들어내는 함수
 function schoolMake () {
-  linusInfo.school.forEach((element, i) => {
-  const experience = document.querySelector('.info_experience');
-
-  const table = document.createElement('table');
+const school = document.querySelector('.info_school');
+const table = document.createElement('table');
+linusInfo.school.forEach((element) => {
   const tbody = document.createElement('tbody');
   const tr = document.createElement('tr');
+  const th = document.createElement('th');
+  const th2 = document.createElement('th');
+  const th3 = document.createElement('th');
+  const tr2 = document.createElement('tr');
   const td = document.createElement('td');
   const td2 = document.createElement('td');
-  const td2H2 = document.createElement('h2');
+  const td3 = document.createElement('td');
 
-  td.textContent = element.date;
-  td2H2.textContent = element.name;
-  td2.appendChild(td2H2);
-  // console.log(element.detail);
-  linusInfo.experience[i].detail.forEach((element) => {
-    // td2.textContent = element.main
-    // console.log(element.main);
-    const td2P = document.createElement('p');
-    td2P.textContent = element.main;
+  th.textContent = "학교 명"
+  th2.textContent = "전공"
+  th3.textContent = "재학 기간"
 
-    td2.appendChild(td2P);
-  });
 
-  tr.appendChild(td);
-  tr.appendChild(td2);
+  td.textContent = element.name;
+  td2.textContent = element.major;
+  td3.textContent = element.date;
+
+  tr.appendChild(th);
+  tr.appendChild(th2);
+  tr.appendChild(th3);
+  tr2.appendChild(td);
+  tr2.appendChild(td2);
+  tr2.appendChild(td3);
   tbody.appendChild(tr);
+  tbody.appendChild(tr2);
   table.appendChild(tbody);
-  experience.appendChild(table);
 });
+school.appendChild(table);
 }
 
+// * experience의 데이터가 들어간 표를 dom제어로 만들어내는 함수
 function experienceMake () {
 linusInfo.experience.forEach((element, i) => {
   const experience = document.querySelector('.info_experience');
@@ -299,9 +307,36 @@ linusInfo.experience.forEach((element, i) => {
 });
 }
 
+// * skill의 데이터가 들어간 표를 dom제어로 만들어내는 함수
+function skillMake () {
+const skill = document.querySelector('.info_skill');
+const table = document.createElement('table');
+const tbody = document.createElement('tbody');
+const tr = document.createElement('tr');
+const h2 = document.createElement('h2');
+
+  h2.textContent = "기술 명"
+
+tbody.appendChild(tr);
+table.appendChild(h2);
+linusInfo.skill.forEach((element) => {
+  const td = document.createElement('td');
+  const tr2 = document.createElement('tr');
+  
+  
+  td.textContent = element.name;
+  tr2.appendChild(td);
+
+  tbody.appendChild(tr2);
+  table.appendChild(tbody);
+});
+skill.appendChild(table);
+}
 
 
+// * 클릭이벤트로 표가 보이고, 안보이고 결정하는 함수 지정.
 async function infoClick () {
+  // * isClick의 초기값은 모두 false
     const isClick = {
     project : false,
     experience : false,
@@ -309,19 +344,28 @@ async function infoClick () {
     skill : false,
   }; 
 
+  // * 표들을 dom제어로 생성하는 코드를 실행.
   projectMake();
   experienceMake();
+  schoolMake();
+  skillMake();
 
+  // * info_project라는 클래스를 가진 div를 불러옴.
   const info_project = document.querySelector('.info_project');
+  // * info_experience라는 클래스를 가진 div를 불러옴.
   const info_experience = document.querySelector('.info_experience');
+  // * info_school 이라는 클래스를 가진 div를 불러옴.
   const info_school = document.querySelector('.info_school');
+  // * info_skill 이라는 클래스를 가진 div를 불러옴.
   const info_skill = document.querySelector('.info_skill');
 
+  // * 위에서 불러온 info_주제 에 해당하는 table들을 불러옴.
   const project_table = info_project.querySelector('table');
   const experience_table = info_experience.querySelectorAll('table');
-  // const school_table = school.querySelector('table');
-  // const skill_table = skill.querySelector('table');
+  const school_table = info_school.querySelector('table');
+  const skill_table = info_skill.querySelector('table');
 
+  // * isClick의 값에 따라 표시, 숨김을 결정하는 함수를 지정
   function tableChane() {
   if(isClick.project === false) {
     project_table.classList.add('d-none');
@@ -345,31 +389,35 @@ async function infoClick () {
     element.classList.remove('d-none');
     })
   }
-  //   if(isClick.school === false) {
-  //   school_table.classList.add('d-none');
-  //   school_table.classList.remove('d-block');
-  // } else {
-  //   school_table.classList.add('d-block');
-  //   school_table.classList.remove('d-none');
-  // }
-  //   if(isClick.skill === false) {
-  //   skill_table.classList.add('d-none');
-  //   skill_table.classList.remove('d-block');
-  // } else {
-  //   skill_table.classList.add('d-block');
-  //   skill_table.classList.remove('d-none');
-  // }
+  if(isClick.school === false) {
+    school_table.classList.add('d-none');
+    school_table.classList.remove('d-block');
+  } else if(isClick.school !== false){
+    school_table.classList.add('d-block');
+    school_table.classList.remove('d-none');
   }
+    if(isClick.skill === false) {
+    skill_table.classList.add('d-none');
+    skill_table.classList.remove('d-block');
+  } else {
+    skill_table.classList.add('d-block');
+    skill_table.classList.remove('d-none');
+  }
+  }
+
+// * 초기에 isClick의 값에 따라 표시, 숨김을 결정하는 함수를 불러와서, 초기값은 숨김으로 둔다.
 tableChane();
 
 
+// * 각 주제에 해당하는 h2 값을 가져온다.
   const project = info_project.querySelector('h2');
   const experience = info_experience.querySelector('h2');
   const school = info_school.querySelector('h2');
   const skill = info_skill.querySelector('h2');
 
 
-
+// * 각 주제에 해당하는 h2태그를 버튼으로 대체한다.
+// * 프로젝트에 해당하는 상태값 변환
   project.addEventListener('click', () => {
     if(isClick.project === false) {
       isClick.project = true
@@ -380,7 +428,7 @@ tableChane();
     }
     console.log(isClick.project);
   })
-
+// * 경험에 해당하는 상태값 변환
   experience.addEventListener('click', () => {
     if(isClick.experience === false) {
       isClick.experience = true
@@ -391,32 +439,54 @@ tableChane();
     }
     console.log(isClick.experience);
   })
+// * 학교에 해당하는 상태값 변환
+  school.addEventListener('click', () => {
+    if(isClick.school === false) {
+      isClick.school = true
+      tableChane();
+    } else {
+      isClick.school = false
+      tableChane();
+    }
+    console.log(isClick.school);
+  })
+// * 기술에 해당하는 상태값 변환
+    skill.addEventListener('click', () => {
+    if(isClick.skill === false) {
+      isClick.skill = true
+      tableChane();
+    } else {
+      isClick.skill = false
+      tableChane();
+    }
+    console.log(isClick.skill);
+  })
 };
 
+// * infoClick함수를 한번 실행.
 infoClick();
-
-
 }
 
+// * 표를 만드는 코드를 실행.
 infoMake();
 
+// * html의 자기소개를 내용으로 가지고 있는 my_info_btn을 클래스로 가진 h2태그를 가져옴.
 const infoBtn = document.querySelector('.my_info_btn');
 
+// * 위에서 불러온 h2태그를 버튼으로 대체
 infoBtn.addEventListener('click', () => {
+  // * my_info를 클래스로 가진 div를 지정
   const my_info = document.querySelector('.my_info');
+  // * 디버깅 목적으로 콘솔을 찍어봄.
   console.log(my_info.classList);
 
+  // * 만일 my_info의 클래스리스트의 밸류값이 my_info와 d-none을 가지고 있다면 표시
   if(my_info.classList.value === "my_info d-none") {
     my_info.classList.add('d-block');
     my_info.classList.remove('d-none');
+  // * 만일 my_info의 클래스리스트의 밸류값이 my_info와 d-block을 가지고 있다면 숨김
   } else if (my_info.classList.value === "my_info d-block") {
     my_info.classList.add('d-none');
     my_info.classList.remove('d-block');
   }
-
-
-
-  
-
-
 });

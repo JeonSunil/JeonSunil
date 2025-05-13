@@ -153,6 +153,23 @@ const linusInfo = {
   ]
 }
 
-const projectInfo = document.querySelector('.project_info');
+const info = document.querySelector('.info');
 
-console.log(projectInfo);
+console.log(info);
+console.log(linusInfo);
+
+// const project = document.createElement('h2');
+// const experience = document.createElement('h2');
+// const school = document.createElement('h2');
+// const skill = document.createElement('h2');
+
+console.log(Object.keys(linusInfo));
+
+Object.keys(linusInfo).forEach((element, i) => {
+  const div = document.createElement('div');
+  div.classList.add(`info_${Object.keys(linusInfo)[i]}`)
+  element = document.createElement('h2');
+  element.textContent = Object.keys(linusInfo)[i];
+  div.appendChild(element)
+  info.appendChild(div);
+});

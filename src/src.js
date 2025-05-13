@@ -153,23 +153,6 @@ const linusInfo = {
   ]
 }
 
-// console.log(linusInfo);
+const projectInfo = document.querySelector('.project_info');
 
-// for(let i = 0; i<linusInfo.experience.length; i++) {
-//   console.log(linusInfo.experience[i].name);
-// }
-linusInfo.experience.forEach(element => {
-  console.log(element);
-});
-
-linusInfo.project.forEach(element => {
-  console.log(element);
-});
-
-linusInfo.school.forEach(element => {
-  console.log(element);
-});
-
-linusInfo.skill.forEach(element => {
-  console.log(element);
-});
+console.log(projectInfo);

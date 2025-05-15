@@ -21,18 +21,25 @@ body {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   height: 10vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   padding-left: 1em;
   padding-right: 1em;
   box-shadow: 0 2px 4px #0000001a;
+  z-index: 1;
+}
+
+header h2 {
+  margin: 0;
 }
 
 main {
+  padding-top: 10vh;
   display: flex;
   justify-content: space-around;
   background-color: rgb(255, 255, 255);
@@ -44,10 +51,17 @@ main {
 
 .left_info {
   width: 45vw;
+  padding-bottom: 10vh;
 }
 
 .right_info {
   width: 45vw;
+  padding-bottom: 10vh;
+}
+
+.infoTable {
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
 }
 
 h1 {

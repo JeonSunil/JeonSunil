@@ -421,9 +421,11 @@ tableChane();
   project.addEventListener('click', () => {
     if(isClick.project === false) {
       isClick.project = true
+      project.classList.add('bg-select');
       tableChane();
     } else {
       isClick.project = false
+      project.classList.remove('bg-select');
       tableChane();
     }
     console.log(isClick.project);
@@ -432,9 +434,11 @@ tableChane();
   experience.addEventListener('click', () => {
     if(isClick.experience === false) {
       isClick.experience = true
+      experience.classList.add('bg-select');
       tableChane();
     } else {
       isClick.experience = false
+      experience.classList.remove('bg-select');
       tableChane();
     }
     console.log(isClick.experience);
@@ -443,9 +447,11 @@ tableChane();
   school.addEventListener('click', () => {
     if(isClick.school === false) {
       isClick.school = true
+      school.classList.add('bg-select');
       tableChane();
     } else {
       isClick.school = false
+      school.classList.remove('bg-select');
       tableChane();
     }
     console.log(isClick.school);
@@ -454,9 +460,11 @@ tableChane();
     skill.addEventListener('click', () => {
     if(isClick.skill === false) {
       isClick.skill = true
+      skill.classList.add('bg-select');
       tableChane();
     } else {
       isClick.skill = false
+      skill.classList.remove('bg-select');
       tableChane();
     }
     console.log(isClick.skill);
@@ -473,12 +481,24 @@ infoMake();
 // * html의 자기소개를 내용으로 가지고 있는 my_info_btn을 클래스로 가진 h2태그를 가져옴.
 const infoBtn = document.querySelector('.my_info_btn');
 
+let btnIsClick = false;
 // * 위에서 불러온 h2태그를 버튼으로 대체
 infoBtn.addEventListener('click', () => {
   // * my_info를 클래스로 가진 div를 지정
   const my_info = document.querySelector('.my_info');
   // * 디버깅 목적으로 콘솔을 찍어봄.
   console.log(my_info.classList);
+  if(btnIsClick === false) {
+    btnIsClick = true;
+    infoBtn.classList.add('bg-select');
+    console.log(btnIsClick);
+    console.log(infoBtn.classList);
+  } else if (btnIsClick === true) {
+    btnIsClick = false;
+    infoBtn.classList.remove('bg-select');
+    console.log(btnIsClick);
+    console.log(infoBtn.classList);
+  }
 
   // * 만일 my_info의 클래스리스트의 밸류값이 my_info와 d-none을 가지고 있다면 표시
   if(my_info.classList.value === "my_info d-none") {

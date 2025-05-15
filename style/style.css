@@ -6,6 +6,14 @@
   display: none;
 }
 
+.bg-select {
+  background-color: rgb(215, 215, 215);
+}
+
+.bg-white {
+  background-color: white;
+}
+
 body {
   margin: 0;
   width: 100vw;
@@ -42,6 +50,21 @@ main {
   width: 45vw;
 }
 
+h1 {
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.left_info > table {
+  margin-bottom: 1em;
+}
+
+.left_info table td {
+  padding-left: 1em;
+}
+
+
 footer {
   display: flex;
   align-items: center;
@@ -57,6 +80,7 @@ footer p {
 }
 
 .info_experience table {
+  margin: 1em;
   border-collapse: collapse;
 }
 
@@ -99,6 +123,7 @@ footer p {
 }
 
 .info_project table {
+  margin: 1em;
   border-collapse: collapse;
 }
 
@@ -109,6 +134,7 @@ footer p {
 }
 
 .info_school table {
+  margin: 1em;
   border-collapse: collapse;
 }
 
@@ -119,6 +145,7 @@ footer p {
 }
 
 .info_skill table {
+  margin: 1em;
   border-collapse: collapse;
   padding-bottom: 1em;
 }
@@ -136,12 +163,16 @@ footer p {
 }
 
 .info_project > h2:nth-of-type(1), .info_experience > h2:nth-of-type(1), .info_school > h2:nth-of-type(1), .info_skill > h2:nth-of-type(1) {
+  margin: 0;
   cursor: pointer;
   border-bottom: 1px solid gray;
+  padding-left: 1em;
+  padding-top: 1em;
   padding-bottom: 1em;
 }
 
 .info_project > h2:nth-of-type(1):hover, .info_experience > h2:nth-of-type(1):hover, .info_school > h2:nth-of-type(1):hover, .info_skill > h2:nth-of-type(1):hover {
+  background-color: rgb(215, 215, 215);
   opacity: 50%;
 }
 
@@ -149,10 +180,12 @@ footer p {
   margin: 0;
   padding-top: 1em;
   padding-bottom: 1em;
+  padding-left: 1em;
   cursor: pointer;
   border-bottom: 1px solid gray;
 }
 
 .my_info_btn:hover {
+  background-color: rgb(215, 215, 215);
   opacity: 50%;
 }
